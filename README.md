@@ -1,21 +1,12 @@
 # CodeIgniter 4 Framework Example by Guillermo Ayala
 
-## What is CodeIgniter?
+## Que rayos deje guardado aqui?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
-
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
-
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
-
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+Diferentes ejercicios hechos en codeigniter 
 
 
-## Important Change with index.php
+
+## Crud con Codeigniter
 
 `index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
 for better security and separation of components.
