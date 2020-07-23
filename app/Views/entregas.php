@@ -13,7 +13,11 @@
 <body>
 
 <div class="container mt-5">
-
+  <select name="entregas">
+    <?php foreach($entregas as $e) : ?>
+      <option><?= $e['IdEntrega'] ?></option>
+    <?php endforeach; ?>
+  </select>
     <div class="row">
       
        <div class="col-lg-8">
@@ -25,7 +29,7 @@
           <tr>
              <th class="fecha">Id</th>
              <th>Fecha de Entrega</th>
-             <th>Hora</th>
+             <!-- <th>Hora</th> -->
              <th>Ingenio</th>
              <th>Equipo</th>
              <th>Peso TM</th>
@@ -37,8 +41,8 @@
           <tr>
             <td><?php echo $entregas['IdEntrega']; ?></td>
              <td><?php echo $entregas['FechaEntrega']; ?></td>
-             <td><?php echo $entregas['IdIngenio']; ?></td>
-             <td><?php echo $entregas['IdEquipo']; ?></td>
+             <td><?php echo $entregas['Ingenio']; ?></td>
+             <td><?php echo $entregas['Equipo']; ?></td>
              <td><?php echo $entregas['PesoTM']; ?></td>
 
              

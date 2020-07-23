@@ -12,13 +12,13 @@ class Entregas extends Controller
 	public function __construct()
 	{
          $this->entrega = new entregasModel();
-         $this->load->model('entregasModel', 'entregasModel');
+        //  $this->load->model('entregasModel', 'entregasModel');
 	}
     public function index()
     {    
         
         $model = new entregasModel();
-        $data['entregas'] = $this->entregasModel->FindAll();
+        $data['entregas'] = $this->entrega->Obtener_Entregas_II();
         return view('estructura/header').view('entregas',$data);
     }
     public function create()

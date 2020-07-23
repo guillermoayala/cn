@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://localhost:82/cn/';
+	public $baseURL = 'http://localhost/codeigniterexample/';
 
 	/*
 	|--------------------------------------------------------------------------

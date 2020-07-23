@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Database\ConnectionInterface;
 use CodeIgniter\Model;
 
-class entregasModel extends Model
+class entregasModel extends \CodeIgniter\Model
 {
     protected $table = 'entregas';
 
@@ -28,9 +28,14 @@ class entregasModel extends Model
         }
     }
 
-    public function finAll()
+    public function Obtener_Entregas_II()
     {
-        $this->db->select();
+        $query = $this->db->query("select en.IdEntrega,en.FechaEntrega,i.Nombre as Ingenio,eq.Nombre as Equipo,en.PesoTM from entregas en
+        inner join equipos eq on en.IdEquipo = eq.IdEquipo
+        inner join ingenios i on en.IdIngenio = i.IdIngenio");
+
+        $query->getResultArray(); 
+        return $query->resultArray;
     }
 
     public function listarEntregas()
