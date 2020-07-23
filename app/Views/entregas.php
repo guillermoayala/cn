@@ -17,29 +17,31 @@
     <div class="row">
       
        <div class="col-lg-8">
-       <h1>Lista de Peliculas</h1>
-       <a href="<?php echo base_url('/index.php/Posts/create') ?>" class="btn btn-primary mt-5">Nueva Pelicula</a>
+       <h1>Lista de entregas</h1>
+       <a href="<?php echo base_url('/index.php/Entregas/create') ?>" class="btn btn-primary mt-5">Nueva entrega</a>
             <div class="row mt-3">
-                 <table class="table table-striped " id="posts">
+                 <table class="table table-striped " id="entregas">
        <thead>
           <tr>
-             <th>Id</th>
-             <th>Pelicula</th>
-             <th>Descripcion</th>
-             <th>Accion</th>
+             <th class="fecha">Id</th>
+             <th>Fecha de Entrega</th>
+             <th>Hora</th>
+             <th>Ingenio</th>
+             <th>Equipo</th>
+             <th>Peso TM</th>
           </tr>
        </thead>
        <tbody>
-          <?php if($posts): ?>
-          <?php foreach($posts as $post): ?>
+          <?php if($entregas): ?>
+          <?php foreach($entregas as $entregas): ?>
           <tr>
-             <td><?php echo $post['id']; ?></td>
-             <td><?php echo $post['title']; ?></td>
-             <td><?php echo $post['description']; ?></td>
-             <td>
-              <a href="<?php echo base_url('index.php/Posts/edit/'.$post['id']);?>" class="btn btn-sm btn-success">Editar</a>
-              <a href="<?php echo base_url('index.php/Posts/delete/'.$post['id']);?>" class="btn btn-sm btn-danger">Eliminar</a>
-              </td>
+            <td><?php echo $entregas['IdEntrega']; ?></td>
+             <td><?php echo $entregas['FechaEntrega']; ?></td>
+             <td><?php echo $entregas['IdIngenio']; ?></td>
+             <td><?php echo $entregas['IdEquipo']; ?></td>
+             <td><?php echo $entregas['PesoTM']; ?></td>
+
+             
           </tr>
          <?php endforeach; ?>
          <?php endif; ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -47,9 +49,7 @@
      </table>
                    </div>
                 </div>
-          <div class="col-lg-4  mt-5">
-               <img style="width:100%" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/10/star-wars-9-cartel.jpg?itok=LjlFPDSG" alt="test">
-         </div>
+          
     </div>
    
   
@@ -64,45 +64,61 @@
 </body>
 </html>
 
-<script>
+ 
+
+ <script type="text/javascript">
+
+var contenido = document.querySelector('#hora')
 
 
-//Metodo de POST
-function postAPI() {
 
-   fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: 'Esto es un ejemplo',
-      body: 'Test',
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-  .then(response => response.json())
-  .then(json => console.log(json))
+function Hora(){
+   var entregas = [<?php echo '"'.implode('","', $entregas).'"' ?>];
+   console.log(entregas);
+
+
+for(var i=0;i<arrayJS.length;i++)
+ {
+   console.log(arrayJS);
+ }
+ 
 
 }
 
-//Metodo de Obtener por Id
+Hora();
 
-function GetPorId() {
-   fetch('https://jsonplaceholder.typicode.com/posts?userId=2')
-  .then((response) => response.json())
-  .then((json) => console.log(json))
+
+    async function getEntregas() {
+    const response = await fetch('http://localhost:82/cn/index.php/Entregas/test')
+    const data = await response.json();
+    console.log(data);
+    MostrarEnTabla(data)
+    //tabla(data)    
+
+  }
+  async function MostrarEnTabla(data) {
+    contenido.innerHTML = ''
+    const { results } = data;
+    console.log("MostrarEnTabla -> results", results)
+ 
+
+  }
+  async function Click() {
    
-}
+ fetch('index.php/Entregas/test')
+ .then(response => response.json())
+ .catch(error => console.error('Error:', error))
+ .then(response => console.log('Success:', JSON.stringify(response)));
+  }
+  async function getEntregas() {
+    const response = await fetch('../Entregas/test')
+    const data = await response.json();
+    console.log(data);
+   
+    //tabla(data)    
 
-function EliminarPorId() {
-   fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'DELETE',
-})
-}
-
-//Llamado de metodos
-GetPorId();
-postAPI();
-</script>
-
+  }
+  
+ 
+  
+ </script>

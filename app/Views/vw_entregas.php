@@ -16,30 +16,38 @@
 
     <div class="row">
       
-       <div class="col-lg-8">
-       <h1>Lista de Peliculas</h1>
-       <a href="<?php echo base_url('/index.php/Posts/create') ?>" class="btn btn-primary mt-5">Nueva Pelicula</a>
+       <div class="col-lg-12">
+       <h1>Procesos de entregas</h1>
             <div class="row mt-3">
-                 <table class="table table-striped " id="posts">
+                 <table class="table table-striped " id="entregas">
        <thead>
+           
           <tr>
-             <th>Id</th>
-             <th>Pelicula</th>
-             <th>Descripcion</th>
-             <th>Accion</th>
+             <th>IdEntrega</th>
+             <th>Fecha de Entrega</th>
+             <th>IdEquipo</th>
+             <th>Placa</th>
+             <th>Peso TM</th>
+             <th>IdIngenio</th>
+             <th>CodIngenio</th>
+             <th>NomIngenio</th>
+            
           </tr>
        </thead>
        <tbody>
-          <?php if($posts): ?>
-          <?php foreach($posts as $post): ?>
+          <?php if($vw_entregas): ?>
+          <?php foreach($vw_entregas as $vw_entregas): ?>
           <tr>
-             <td><?php echo $post['id']; ?></td>
-             <td><?php echo $post['title']; ?></td>
-             <td><?php echo $post['description']; ?></td>
-             <td>
-              <a href="<?php echo base_url('index.php/Posts/edit/'.$post['id']);?>" class="btn btn-sm btn-success">Editar</a>
-              <a href="<?php echo base_url('index.php/Posts/delete/'.$post['id']);?>" class="btn btn-sm btn-danger">Eliminar</a>
-              </td>
+            <td><?php echo $vw_entregas['IdEntrega']; ?></td>
+             <td><?php echo $vw_entregas['FechaEntrega']; ?></td>
+             <td><?php echo $vw_entregas['IdEquipo']; ?></td>
+             <td><?php echo $vw_entregas['Placa']; ?></td>
+             <td><?php echo $vw_entregas['PesoTM']; ?></td>
+             <td><?php echo $vw_entregas['IdIngenio']; ?></td>
+             <td><?php echo $vw_entregas['CodIngenio']; ?></td>
+             <td><?php echo $vw_entregas['NomIngenio']; ?></td>
+
+             
           </tr>
          <?php endforeach; ?>
          <?php endif; ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -47,9 +55,7 @@
      </table>
                    </div>
                 </div>
-          <div class="col-lg-4  mt-5">
-               <img style="width:100%" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/10/star-wars-9-cartel.jpg?itok=LjlFPDSG" alt="test">
-         </div>
+       
     </div>
    
   
@@ -63,46 +69,3 @@
 
 </body>
 </html>
-
-<script>
-
-
-//Metodo de POST
-function postAPI() {
-
-   fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: 'Esto es un ejemplo',
-      body: 'Test',
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-  .then(response => response.json())
-  .then(json => console.log(json))
-
-}
-
-//Metodo de Obtener por Id
-
-function GetPorId() {
-   fetch('https://jsonplaceholder.typicode.com/posts?userId=2')
-  .then((response) => response.json())
-  .then((json) => console.log(json))
-   
-}
-
-function EliminarPorId() {
-   fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'DELETE',
-})
-}
-
-//Llamado de metodos
-GetPorId();
-postAPI();
-</script>
-

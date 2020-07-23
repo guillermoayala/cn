@@ -4,10 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio</title>
 </head>
 <body>
+  
 <style>
+  Body{
+    margin: 0px;
+    display: block;
+    overflow-x: hidden;
+    position: relative;
+  }
+
 .rigth_rectagle {
   transform: rotate(-57deg);
   position: absolute;
@@ -160,8 +168,11 @@
 }
 
    </style>
-<div class="left_rectagle"></div>
-<div class="rigth_rectagle"></div>
+   <div class="col-lg12">
+   <div class="left_rectagle"></div>
+  <div class="rigth_rectagle"></div>
+   </div>
+
 
 
 </body>
